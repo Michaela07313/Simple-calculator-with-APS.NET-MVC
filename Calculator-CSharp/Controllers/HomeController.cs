@@ -5,9 +5,9 @@ namespace Calculator_CSharp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(Calculator calculator)
         {
-            return View();
+            return View(calculator);
         }
 
 
@@ -16,7 +16,7 @@ namespace Calculator_CSharp.Controllers
         {
             calculator.Result = CalculateResult(calculator);
 
-            return this.RedirectToAction("Index", calculator);
+            return RedirectToAction("Index", calculator);
         }
 
         private decimal CalculateResult(Calculator calculator)
